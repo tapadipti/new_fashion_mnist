@@ -10,3 +10,26 @@ stages:
     - path: output/data.pkl
       md5: 35353c71da0985eed8bb507bbc53bd91
       size: 54950285
+  train:
+    cmd: python src/train.py
+    deps:
+    - path: output/data.pkl
+      md5: 35353c71da0985eed8bb507bbc53bd91
+      size: 54950285
+    - path: src/train.py
+      md5: 3bf49625f7bc99d478ba71fb8f131794
+      size: 2201
+    params:
+      params.yaml:
+        train.batch_size: 128
+        train.dropout: 0.4
+        train.hidden_units: 64
+        train.lr: 0.01
+        train.num_epochs: 1
+    outs:
+    - path: output/model.h5
+      md5: 9b588f4f8e837596c80b939b44cd8508
+      size: 637888
+    - path: output/train_logs.csv
+      md5: 3f5645524c8b7ef5ced182f8823466d0
+      size: 60
