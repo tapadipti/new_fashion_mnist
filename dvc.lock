@@ -33,3 +33,22 @@ stages:
     - path: output/train_logs.csv
       md5: 3f5645524c8b7ef5ced182f8823466d0
       size: 60
+  evaluate:
+    cmd: python src/evaluate.py
+    deps:
+    - path: output/data.pkl
+      md5: 35353c71da0985eed8bb507bbc53bd91
+      size: 54950285
+    - path: output/model.h5
+      md5: 9b588f4f8e837596c80b939b44cd8508
+      size: 637888
+    - path: src/evaluate.py
+      md5: 85d73b83a78dca17769216e7406895bf
+      size: 1168
+    outs:
+    - path: output/metrics.json
+      md5: 5685e6bde8e1da6c282ffaad207656fd
+      size: 60
+    - path: output/predictions.json
+      md5: ac88ab2e0f14fc5a453beae15cc6f5c2
+      size: 310000
